@@ -21,6 +21,7 @@ function SubscribeEmail(props) {
       />
 
       <Button
+        onClick={props.propSnack}
         variant="contained"
         fullWidth
         sx={{

@@ -9,6 +9,7 @@ import Stack from "@mui/material/Stack";
 import IconSuccess from "../assets/images/IconSuccess.svg";
 import VerifiedText from "./VerifiedText";
 import SubscribeEmail from "./SubscribeEmail";
+import Snackbar from "@mui/material/Snackbar";
 
 const style = {
   position: "absolute",
@@ -30,12 +31,30 @@ const texts = [
 
 export default function MyModal() {
   const [open, setOpen] = React.useState(false);
+  const [snackBarOpen, setSnackBarOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  const subscribeEvent = () => {
+    handleClose();
+    setSnackBarOpen(true);
+  };
+
+  const handleSnackBarClose = () => {
+    setSnackBarOpen(false);
+  };
 
   return (
     <div>
       <Button onClick={handleOpen}>Open modal</Button>
+
+      <Snackbar
+        open={snackBarOpen}
+        autoHideDuration={5000}
+        onClose={handleSnackBarClose}
+        message="Success"
+      />
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -53,14 +72,14 @@ export default function MyModal() {
 
                   {texts.map((obj) => {
                     return (
-                      <VerifiedText 
-                        icon={obj.icon}>
-                          {obj.text}
-                      </VerifiedText>
+                      <VerifiedText icon={obj.icon}>{obj.text}</VerifiedText>
                     );
                   })}
 
-                  <SubscribeEmail sx={{ mt: 4 }}></SubscribeEmail>
+                  <SubscribeEmail
+                    propSnack={subscribeEvent}
+                    sx={{ mt: 4 }}
+                  ></SubscribeEmail>
                 </Stack>
               </Box>
             </Grid>
