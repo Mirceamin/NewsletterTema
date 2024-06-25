@@ -7,10 +7,8 @@ import FirstPhoto from "../assets/images/FirstPhoto.svg";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import IconSuccess from "../assets/images/IconSuccess.svg";
-import TextField from "@mui/material/TextField";
-import FormControl from "@mui/material/FormControl";
-import InputLabel from "@mui/material/InputLabel";
-import NativeSelect from "@mui/material/NativeSelect";
+import VerifiedText from "./VerifiedText";
+import SubscribeEmail from "./SubscribeEmail";
 
 const style = {
   position: "absolute",
@@ -45,81 +43,22 @@ export default function MyModal() {
                   <Typography variant="h3" fontWeight="bold" sx={{ pt: 3 }}>
                     Stay updated!
                   </Typography>
-                  <Typography sx={{ pt: 2 }}>
+
+                  <VerifiedText>
                     Join 60,000+ product managers receiving monthly updates on:
-                  </Typography>
+                  </VerifiedText>
 
-                  <Stack
-                    alignItems="center"
-                    direction="row"
-                    gap={2}
-                    sx={{ pt: 1 }}
-                  >
-                    <img src={IconSuccess} alt="" />
-                    <Typography variant="body1">
-                      Product discovery and building what matters
-                    </Typography>
-                  </Stack>
+                  <VerifiedText icon={IconSuccess}>
+                    Product discovery and building what matters
+                  </VerifiedText>
 
-                  <Stack
-                    alignItems="center"
-                    direction="row"
-                    gap={2}
-                    sx={{ pt: 1 }}
-                  >
-                    <img src={IconSuccess} alt="" />
-                    <Typography variant="body1">
-                      Measuring to ensure updates are a success
-                    </Typography>
-                  </Stack>
+                  <VerifiedText icon={IconSuccess}>
+                    Measuring to ensure updates are a success
+                  </VerifiedText>
 
-                  <Stack
-                    alignItems="center"
-                    direction="row"
-                    gap={2}
-                    sx={{ pt: 1 }}
-                  >
-                    <img src={IconSuccess} alt="" />
-                    <Typography variant="body1">And much more!</Typography>
-                  </Stack>
+                  <VerifiedText icon={IconSuccess}>And much more!</VerifiedText>
 
-                  <Typography
-                    variant="h7"
-                    fontWeight="bold"
-                    sx={{ pt: 4, pb: 1 }}
-                  >
-                    Email address
-                  </Typography>
-                  <TextField
-                    sx={{ pb: 3 }}
-                    fullWidth
-                    id="outlined-basic"
-                    label="email@company.com"
-                    variant="outlined"
-                  />
-
-                  <Button
-                    variant="contained"
-                    fullWidth
-                    sx={{
-                      backgroundColor: "black",
-                      textTransform: "none",
-                      height: 50,
-                    }}
-                  >
-                    Subscribe to monthly newsletter
-                  </Button>
-
-                  <FormControl fullWidth sx={{ mt: 2 }}>
-                    <InputLabel htmlFor="my-input" variant="standard">
-                      Select
-                    </InputLabel>
-                    <NativeSelect id="my-input">
-                      <option>Daily</option>
-                      <option>Weekly</option>
-                      <option>Monthly</option>
-                    </NativeSelect>
-                  </FormControl>
+                  <SubscribeEmail sx={{ mt: 4 }}></SubscribeEmail>
                 </Stack>
               </Box>
             </Grid>
