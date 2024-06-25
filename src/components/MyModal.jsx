@@ -21,6 +21,13 @@ const style = {
   borderRadius: 10,
 };
 
+const texts = [
+  { text: "Join 60,000+ product managers receiving monthly updates on:" },
+  { text: "Product discovery and building what matters", icon: IconSuccess },
+  { text: "Measuring to ensure updates are a success", icon: IconSuccess },
+  { text: "And much more!", icon: IconSuccess },
+];
+
 export default function MyModal() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -44,19 +51,14 @@ export default function MyModal() {
                     Stay updated!
                   </Typography>
 
-                  <VerifiedText>
-                    Join 60,000+ product managers receiving monthly updates on:
-                  </VerifiedText>
-
-                  <VerifiedText icon={IconSuccess}>
-                    Product discovery and building what matters
-                  </VerifiedText>
-
-                  <VerifiedText icon={IconSuccess}>
-                    Measuring to ensure updates are a success
-                  </VerifiedText>
-
-                  <VerifiedText icon={IconSuccess}>And much more!</VerifiedText>
+                  {texts.map((obj) => {
+                    return (
+                      <VerifiedText 
+                        icon={obj.icon}>
+                          {obj.text}
+                      </VerifiedText>
+                    );
+                  })}
 
                   <SubscribeEmail sx={{ mt: 4 }}></SubscribeEmail>
                 </Stack>
